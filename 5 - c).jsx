@@ -1,31 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-
-
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
+function Temperatura(){
+  const[temperatura, setTemp] = useState(20);
  
-  return (
-    <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
-      </div>
-      <p>{progresso.toFixed(1)}% completo</p>
-    </div>
-  )
+  const getCorTemperatura = (temp) => {
+  if(temp < 15) return '#76b9e3ff';
+  if(temp < 25) return '#c1b918ff';
+  return '#9d0505ff'
+};
+
+
+  return(
+  <div style ={{
+      fontSize: '48px',
+      fontWeight: 'bold',
+      backgroundColor: getCorTemperatura(temperatura)
+    }}>
+
+
+    <h2>Temperatura: {temperatura}°c</h2>
+    <button onClick={() => setTemp (temperatura + 2)}>+2</button>
+    <button onClick={() => setTemp (temperatura - 2)}>-2</button>
+  </div>
+
+
+  );
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
-}
 
 
-export default App
+
+
+export default Temperatura;
