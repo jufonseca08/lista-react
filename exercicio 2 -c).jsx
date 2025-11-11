@@ -1,10 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-
-
 function StatusJogo({nivel, pontos}){
   const maxPontos = nivel * 1000
   const progresso = Math.min((pontos / maxPontos) * 100, 100);
