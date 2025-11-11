@@ -1,31 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+function CartaoLivro({titulo, autor, ano, genero}){  
+  return(
+    <div>
+      <h2>{titulo}</h2>
+      <p><strong>Autor: </strong>{autor}</p>
+      <p><strong>Ano: </strong>{ano}</p>
+      <p><strong>Gênero: </strong>{genero}</p>
+    </div>
+  );
+}
 
 
-
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
- 
+function App() {
   return (
     <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
-      </div>
-      <p>{progresso.toFixed(1)}% completo</p>
+      <CartaoLivro titulo = "Quarta Asa" autor = "Rebecca Yarros" ano = {2023} genero = "Fantasia"/>
     </div>
-  )
+  );
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
-}
-
-
-export default App
+export default App;
