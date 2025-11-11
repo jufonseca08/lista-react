@@ -1,31 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+function MeuRestaurante() {
+  const pratos = [
+    { nome:'Papas fritas' , preco: 32.90, descricao:'Batatas fatiadas e fritas no oleo'},
+    { nome:'Salmão' , preco: 45.50, descricao:'Peixe salmão sem espinhas'},
+    { nome:'Pão de queijo' , preco: 28.00, descricao:'Prato com uma porção de 10 pãos de queijos'},
+    { nome:'Risotto de camarão com queijo com queijo brie' , preco: 38.70, descricao:'risito camarão'}
+  ];
 
 
 
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
- 
-  return (
+
+  return(
     <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
+      <h1>Cardápio do Restaurante</h1>
+      <div className = "menu-grid">
+        {pratos.map((prato, index) => (
+        <div key = {index} className = "prato-card">
+          <h3>{prato.nome}</h3>
+          <p className="preco">R$ {prato.preco.toFixed(2)}</p>
+          <p className="descricao">{prato.descricao}</p>
+        </div>
+        ))}
+
+
+
+
       </div>
-      <p>{progresso.toFixed(1)}% completo</p>
     </div>
-  )
+  );
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
-}
 
 
-export default App
+export default MeuRestaurante;
