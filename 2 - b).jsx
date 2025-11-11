@@ -1,31 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import React from "react";
 
 
-
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
- 
-  return (
-    <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
-      </div>
-      <p>{progresso.toFixed(1)}% completo</p>
-    </div>
-  )
+function BoasVindas({ usuario }) {
+  return <h1> Bem vindo de volta, {usuario}!</h1>;
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
+export default function MyApp() {
+  return <BoasVindas usuario="Júlia" />;
 }
-
-
-export default App
