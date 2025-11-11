@@ -1,31 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+function CartaoPessoa({nome, idade, profissao}){  
+  return(
+    <div>
+      <h2>{nome}</h2>
+      <p><strong>Idade: </strong>{idade}</p>
+      <p><strong>Profissão: </strong>{profissao}</p>
+    </div>
+  );
+}
 
 
-
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
- 
+function App() {
   return (
     <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
-      </div>
-      <p>{progresso.toFixed(1)}% completo</p>
+      <CartaoPessoa nome = "Júlia" idade = {17} profissao = "Nenhuma"/>
     </div>
-  )
+  );
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
-}
-
-
-export default App
+export default App;
