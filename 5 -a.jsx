@@ -1,31 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+function Contador(){
+  const[count, setCount] = useState(0);
 
 
-
-function StatusJogo({nivel, pontos}){
-  const maxPontos = nivel * 1000
-  const progresso = Math.min((pontos / maxPontos) * 100, 100);
-  const corBarra = progresso < 30 ? 'red' : progresso < 70 ? 'orange' : 'green'
- 
-  return (
-    <div>
-      <h2>Nivel {nivel}</h2>
-      <p>Pontos: {pontos} / {maxPontos}</p>
-      <div className = "progress-container">
-        <div className = {`progress-bar ${corBarra}`} data-width = {progresso}></div>
-      </div>
-      <p>{progresso.toFixed(1)}% completo</p>
-    </div>
-  )
+  return(
+  <div>
+    <h2>Contador: {count}</h2>
+    <button onClick={() => setCount (count + 1)}>+1</button>
+    <button onClick={() => setCount (count - 1)}>-1</button>
+  </div>
+  );
 }
 
 
-function App(){
-  return <StatusJogo nivel = {5} pontos = {2000}/>
-}
+export default Contador;
 
-
-export default App
