@@ -1,0 +1,374 @@
+:root {
+  --color-dark-background: #04022e;
+  --color-panel-background: #060442;
+  --color-panel-border: #0d0dd6;
+  --color-text-light: #f8f8f8;
+  --color-primary-action: #4a90e2;
+  --color-secondary-action: #a70f0f;
+  --color-gold: #ffc400;
+  --color-hp-low: #690b0b;
+  --color-hp-medium: #e6df0c;
+  --color-hp-high: #17df14;
+  --color-xp-bar: #7c0ccd;
+  --font-rpg: "Georgia", serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--color-dark-background), #252525);
+  color: var(--color-text-light);
+  font-family: var(--font-rpg);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-secondary-action);
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  margin-top: 0;
+}
+
+.gold-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--color-gold);
+  margin: 10px 0;
+}
+
+.panel {
+  background-color: var(--color-panel-background);
+  border: 2px solid var(--color-panel-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  background-color: var(--color-primary-action);
+  border: none;
+  border-radius: 6px;
+  color: var(--color-text-light);
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  box-shadow: 0 3px var(--color-dark-background);
+}
+
+button:hover {
+  background-color: #0b5999;
+  transform: translateY(-2px);
+  box-shadow: 0 5px var(--color-dark-background);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px var(--color-dark-background);
+}
+
+button:disabled {
+  background-color: #403f3f;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input,
+select {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--color-panel-border);
+  background-color: #0418ad;
+  color: var(--color-text-light);
+  font-family: inherit;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.select-group label {
+  margin-left: 10px;
+}
+
+.bar-section {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #051158;
+  border-radius: 8px;
+  background-color: #0418ad;
+}
+
+.bar-label {
+  margin: 5px 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.health-bar-container,
+.xp-bar-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px 0;
+  overflow: hidden;
+  border: 1px solid var(--color-panel-border);
+}
+
+.health-bar,
+.xp-bar {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.health-green {
+  background-color: var(--color-hp-high);
+}
+.health-yellow {
+  background-color: var(--color-hp-medium);
+}
+.health-red {
+  background-color: var(--color-hp-low);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.xp-bar-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px 0;
+  overflow: hidden;
+  border: 1px solid var(--color-panel-border);
+}
+
+.xp-bar-container {
+  height: 15px;
+}
+.xp-bar {
+  background-color: var(--color-xp-bar);
+}
+
+.bar-actions button {
+  padding: 6px 10px;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+.attribute-list p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px dashed #e1cfcf;
+}
+
+.attribute-list p:last-child {
+  border-bottom: none;
+}
+
+.status-effects {
+  font-style: italic;
+  color: #e8f0e8;
+  margin-bottom: 15px;
+  border: 1px solid rgb(3, 3, 67);
+  padding: 5px;
+  background-color: #0418ad;
+  border-radius: 4px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+li {
+  background-color: #403f3f;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid var(--color-primary-action);
+}
+
+.quest-list li {
+  border-left: 5px solid var(--color-secondary-action);
+}
+.quest-list li.quest-done {
+  opacity: 0.6;
+  text-decoration: line-through;
+  border-left-color: var(--color-hp-high);
+}
+
+.quest-category {
+  font-size: 0.8em;
+  color: #ddd6d6;
+  margin-left: 5px;
+}
+
+.quest-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quest-input-group input {
+  flex-grow: 1;
+}
+
+.mark-done-btn {
+  background-color: #228b22;
+}
+
+.enchantment-result {
+  font-style: italic;
+  color: #f1f1f1;
+  padding: 10px;
+  background-color: #0418ad;
+  border: 1px solid #090328;
+  border-radius: 4px;
+}
+
+.mana-bar-container {
+  background-color: #e8f0e8;
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px 0;
+  overflow: hidden;
+  border: 1px solid var(--color-panel-border);
+}
+
+.mana-bar {
+  height: 100%;
+  transition: width 0.4s ease;
+  background-color: #cf690fef;
+}
+
+.attribute-list p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px dashed #444;
+}
+
+.atributo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.atributo-nome {
+  text-align: left;
+}
+
+.atributo-descricao {
+  display: block;
+  font-size: 0.75em;
+  color: #bbb6b6;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.shop-panel {
+}
+
+.shop-items-list {
+  margin-top: 15px;
+  border-top: 1px solid #403f3f;
+  padding-top: 10px;
+}
+
+.shop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #262424;
+  padding: 5px;
+  margin: 9px 0;
+  border-radius: 6px;
+  border-left: 5px solid var(--color-gold);
+}
+
+.item-details {
+  font-weight: bold;
+  color: var(--color-text-light);
+}
+
+.buy-btn {
+  background-color: var(--color-gold);
+  color: var(--color-dark-background);
+  padding: 5px 10px;
+}
+.buy-btn:hover {
+  background-color: #ffd700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #090328;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+td {
+  background-color: #0418ad;
+}
+
+tr:has(.isHero) td {
+  background-color: #090328;
+  font-weight: bold;
+}
+
+.ranking-panel button {
+  padding: 3px 8px;
+  font-size: 0.8em;
+  margin: 1px;
+}
+
+.ranking-info {
+  display: block;
+  margin-top: 10px;
+  color: #e9e1e1;
+}
