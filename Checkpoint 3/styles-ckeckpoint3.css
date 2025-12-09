@@ -1,0 +1,213 @@
+* {
+  margin: 5;
+  padding: 5;
+  box-sizing: border-box;
+  font-family: "", Georgia, "Times New Roman", Times, serif, serif, sans-serif;
+}
+
+body {
+  background: #8d0557;
+  color: rgb(236, 238, 237);
+}
+
+/* Layout principal */
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  grid-column: 2 / 6;
+  padding: 20px 20px;
+  background: #62043f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: px;
+}
+
+header input {
+  padding: 5px 8px;
+  border-radius: 80px;
+  border: none;
+  outline: none;
+  width: 190px;
+}
+
+/* ===== PLAYLISTS (lado esquerdo) ===== */
+.playlists {
+  background: #3c052c;
+  padding: 20px 20px;
+  border-right: 1px solid #ffffff;
+}
+
+.playlists h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #f7f6f6;
+  letter-spacing: 3px;
+}
+
+.playlist {
+  padding: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.playlist:hover {
+  background: #630560;
+}
+
+.playlist.ativa {
+  background: #e8eae9;
+  color: black;
+  font-weight: bold;
+}
+
+/* ===== LISTA DE MÚSICAS ===== */
+.lista {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  background: #660654;
+}
+
+/* Scroll bonito */
+.lista::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lista::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+  border-radius: px;
+}
+
+.musica {
+  background: #130909;
+  padding: 15px 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.musica:hover {
+  background: #8f0c86;
+  transform: scale(1.01);
+}
+
+.ativa {
+  border-left: 5px solid #e5e6e5;
+}
+
+.musica div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.musica strong {
+  font-size: 16px;
+}
+
+.musica small {
+  font-size: 13px;
+  color: #ebe3e3;
+}
+
+/* Botões */
+button {
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===== PLAYER (rodapé) ===== */
+footer {
+  grid-column: 2 / 6;
+  background: #740960;
+  padding: 12px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr 1fr;
+  align-items: center;
+  gap: px;
+  border-top: 1px solid #ddcdcd;
+}
+
+footer h3 {
+  font-size: 18px;
+}
+
+footer p {
+  font-size: 33px;
+  color: #f2ecec;
+}
+
+/* Botão Play */
+footer button {
+  justify-self: center;
+  background: #6a064a;
+  color: black;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+footer button:hover {
+  transform: scale(1.1);
+}
+
+/* Progresso */
+.progresso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  accent-color: #6a064a;
+  cursor: pointer;
+}
+
+/* Volume menor */
+footer input[type="range"] {
+  max-width: 120px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .playlists {
+    display: none;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .progresso {
+    flex-direction: column;
+  }
+}
